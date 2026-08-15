@@ -1,0 +1,18 @@
+-- ============================================================================
+-- 06_ML_MODELS.SQL — ML Functions for Nickel Trading & Market Intelligence
+-- ============================================================================
+USE DATABASE NICKEL_TRADING;
+USE SCHEMA ML;
+
+-- ML.FORECAST: LME_NICKEL_FORECAST
+CREATE OR REPLACE SNOWFLAKE.ML.FORECAST ML.LME_NICKEL_FORECAST(
+  INPUT_DATA => SYSTEM$REFERENCE('TABLE', 'CURATED.FORWARD_CURVE'),
+  SERIES_COLNAME => 'PRODUCT_TYPE',
+  TIMESTAMP_COLNAME => 'DS',
+  TARGET_COLNAME => 'Y'
+  
+);
+
+CREATE OR REPLACE TABLE ML.LME_NICKEL_FORECAST_RESULTS AS
+SELECT * FROM TABLE(ML.LME_NICKEL_FORECAST!FORECAST(FORECASTING_PERIODS => 14));
+

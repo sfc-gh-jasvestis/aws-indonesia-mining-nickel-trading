@@ -1,0 +1,122 @@
+{
+  "title": "Nickel Trading & Market Intelligence",
+  "duration": "4 minutes",
+  "thesis": "Snowflake delivers nickel trading intelligence \u2014 Dynamic Tables maintain real-time position books, ML.FORECAST projects LME prices, and Cortex AI synthesizes global market intelligence from 250+ reports",
+  "tabs": [
+    {
+      "id": "trading-overview",
+      "persona": {
+        "name": "Ricky Tan",
+        "role": "Head of Nickel Trading",
+        "avatar": "\ud83d\udc68\u200d\ud83d\udcbc"
+      },
+      "talking_points": [
+        "Net long 8,500 tonnes nickel \u2014 mark-to-market gain of Rp 42 billion at current LME prices.",
+        "LME 3-month nickel at US$16,800/t \u2014 up 4.2% month-on-month on Chinese demand signals.",
+        "Two contracts need hedge adjustments following Indonesian export policy announcement."
+      ],
+      "show": [
+        "Point at net position and MTM KPI",
+        "Show LME price chart with recent move",
+        "Flag policy-exposed contracts"
+      ],
+      "call_out": "Net long 8,500t \u2014 Rp 42B MTM gain, 2 contracts exposed to policy change",
+      "transition": {
+        "next_tab": "market-intelligence",
+        "line": "Let's look at the price outlook and what ML projects."
+      }
+    },
+    {
+      "id": "market-intelligence",
+      "persona": {
+        "name": "Amelia Tanoto",
+        "role": "Market Research Analyst",
+        "avatar": "\ud83d\udc69\u200d\ud83d\udcbc"
+      },
+      "talking_points": [
+        "ML.FORECAST projects LME nickel rising to US$18,200/t in Q2 \u2014 demand from EV battery sector.",
+        "Global nickel market in surplus of 120,000t in 2024 \u2014 but Class 1 deficit persists.",
+        "250 broker reports and policy papers searchable via Cortex Search for instant research."
+      ],
+      "show": [
+        "Show ML price forecast with confidence bands",
+        "Display supply-demand balance chart",
+        "Search: 'Indonesian supply additions 2025'"
+      ],
+      "call_out": "ML projects US$18,200/t Q2 \u2014 bullish on EV demand despite surplus",
+      "transition": {
+        "next_tab": "contract-risk",
+        "line": "Price outlook is constructive. Let's check contract exposure."
+      }
+    },
+    {
+      "id": "contract-risk",
+      "persona": {
+        "name": "Amelia Tanoto",
+        "role": "Market Research Analyst",
+        "avatar": "\ud83d\udc69\u200d\ud83d\udcbc"
+      },
+      "talking_points": [
+        "100 buyer contracts with pricing formulas linked to LME, premiums, and Indonesian HPM reference.",
+        "Three contracts with downside exposure if LME falls below US$15,000/t \u2014 US$45M at risk.",
+        "Export policy change could affect 30% of contracted volume \u2014 scenario analysis shows Rp 89B impact."
+      ],
+      "show": [
+        "Show contract exposure by price scenario",
+        "Highlight downside risk contracts",
+        "Run policy impact scenario"
+      ],
+      "call_out": "US$45M downside risk below US$15,000/t \u2014 policy change affects 30% volume",
+      "transition": {
+        "next_tab": "ask-ai",
+        "line": "Now let the Head of Trading ask the system directly."
+      }
+    },
+    {
+      "id": "ask-ai",
+      "persona": {
+        "name": "Ricky Tan",
+        "role": "Head of Nickel Trading",
+        "avatar": "\ud83d\udc68\u200d\ud83d\udcbc"
+      },
+      "talking_points": [
+        "Ricky asks: 'What's the LME nickel price forecast for next quarter?'",
+        "Cortex Analyst queries ML results \u2014 returns US$18,200/t with bullish EV demand thesis.",
+        "Follow-up: 'Summarize the latest broker views on Indonesian supply additions' \u2014 agent searches research."
+      ],
+      "show": [
+        "Type price forecast question",
+        "Show ML + SQL results",
+        "Switch to research advisory mode"
+      ],
+      "call_out": "Two AI modes: trading analytics + market research advisory",
+      "transition": {
+        "next_tab": "architecture",
+        "line": "Every capability \u2014 native Snowflake SQL, native ML."
+      }
+    },
+    {
+      "id": "architecture",
+      "persona": {
+        "name": "Ricky Tan",
+        "role": "Head of Nickel Trading",
+        "avatar": "\ud83d\udc68\u200d\ud83d\udcbc"
+      },
+      "talking_points": [
+        "Six Snowflake capabilities, six AWS services in the dual-build architecture.",
+        "Kinesis replaced by Snowpipe Streaming; SageMaker by ML.FORECAST.",
+        "Indonesia's nickel industry: US$33B. This manages a US$4.2B annual trading book."
+      ],
+      "show": [
+        "Walk through architecture diagram",
+        "Toggle dual-build mode",
+        "Point at real-time price flow"
+      ],
+      "call_out": "One platform, real-time LME data, native ML for price forecasting",
+      "transition": {
+        "next_tab": "",
+        "line": "That's Snowflake and AWS \u2014 better together for nickel trading."
+      }
+    }
+  ]
+}
