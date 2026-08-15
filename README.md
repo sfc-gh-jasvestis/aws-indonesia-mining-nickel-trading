@@ -10,7 +10,6 @@ An Indonesian nickel producer manages US$4.2 billion in annual sales across phys
 flowchart LR
     S3[S3 Data Landing] --> SP[Snowpipe]
     KIN[Kinesis] --> SPS[Snowpipe Streaming]
-    SP --> RAW[RAW Tables]
     SPS --> RAW
     RAW --> DT[Dynamic Tables]
     DT --> ML[ML Functions]
