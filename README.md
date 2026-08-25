@@ -121,7 +121,7 @@ Industry research and Snowflake customer outcomes:
 - **LME nickel price volatility averaged 32% in 2023 — requiring sophisticated risk management** — [LME](https://www.lme.com/Metals/EV/LME-Nickel)
 - **Indonesian export policy changes have moved LME nickel by 10-15% in past episodes** — [Reuters](https://www.reuters.com/)
 - **AI-driven commodity trading reduces position management latency by 60-80%** — [McKinsey Commodities](https://www.mckinsey.com/industries/metals-and-mining/our-insights)
-
+- **Rio Tinto** (Snowflake customer): uses Snowflake for mining operations analytics, optimizing processing across 60+ sites with real-time sensor data -- [snowflake.com/customers/rio-tinto](https://www.snowflake.com/en/customers/all-customers/case-study/rio-tinto/)
 
 ## Key Demo Numbers
 
