@@ -1,108 +1,81 @@
-# Demo Script: Nickel Trading & Market Intelligence
-## ~4-Minute Recorded Walkthrough
-**Format**: Screen recording with voiceover
-**Target**: Customer meeting / booth loop / social share
-**Narrative**: "Snowflake delivers nickel trading intelligence — Dynamic Tables maintain real-time position books, ML.FORECAST projects LME prices, and Cortex AI synthesizes global market intelligence from 250+ reports"
-**Demo Mode**: Open app with `?demo=true` for presenter notes
+# Nickel Trading & Market Intelligence
 
----
+**Indonesia - Mining & Nickel Processing**
+Use case: Commodity Trading & Market Intelligence
 
-## Two Personas
+> Nickel commodity trading intelligence for Indonesia's US$33B nickel sector — ML.FORECAST projects LME nickel prices, Dynamic Tables maintain position books, and Cortex AI synthesizes market research.
 
-| Persona | Role | Tool | What they care about |
-|---|---|---|---|
-| **Ricky Tan** | Head of Nickel Trading | React App (SPCS) | LME price risk, position exposure, hedging strategy, buyer contracts, export policy changes |
-| **Amelia Tanoto** | Market Research Analyst | Amazon QuickSight | Supply-demand balance, Chinese demand signals, battery sector growth, competitor capacity additions |
+## Why Snowflake
 
----
+Snowflake delivers nickel trading intelligence — Dynamic Tables maintain real-time position books, ML.FORECAST projects LME prices, and Cortex AI synthesizes global market intelligence from 250+ reports
 
-## What's Built
+- **ML.FORECAST on LME nickel prices** - Only demo using ML.FORECAST for base metal commodity price prediction
+- **Real-time position book via Dynamic Tables** - Only demo maintaining live nickel trading positions with mark-to-market
+- **250 market research documents searchable** - Cortex Search on broker reports and policy papers for instant market intelligence
+- **Indonesian export policy scenario analysis** - Models impact of Indonesian nickel export policies on contract exposure
+- **Indonesian nickel trading context** - US$33B industry with LME hedging, HPM reference pricing, and policy uncertainty
 
-| Layer | Component | Detail |
+## What is deployed
+
+| | |
+|---|---|
+| Database | `ID_MINING_NICKEL_TRADING` |
+| Service | `ID_MINING_NICKEL_TRADING_APP` |
+| Compute pool | `SEA_DEMOS_INDONESIA_POOL` |
+| Dimension table | `RAW.BUYER_CONTRACTS` (20 rows) |
+| Fact table | `RAW.MARKET_PRICES` (250,000 rows, 90 days) |
+| Curated layer | `CURATED.PERFORMANCE_SUMMARY`, `CURATED.TREND_ANALYSIS`, `CURATED.KPI_SUMMARY` |
+| Currency | IDR (Rp) |
+
+Regions in play: Jakarta, North Sumatra, Riau, East Kalimantan, Sulawesi
+Segments: LME 3-Month, Cash Settlement, Physical Premium, Offtake Contract
+
+Dynamic tables are created suspended and refreshed on demand:
+
+```bash
+./refresh_demo_data.sh ID_MINING_NICKEL_TRADING
+```
+
+## KPI cards
+
+Every card below is served live from `CURATED.KPI_SUMMARY`. The app keeps the
+original literal as a fallback, so it still renders if Snowflake is unreachable.
+
+| Card | Value | Backed by |
 |---|---|---|
-| **RAW** | 6 tables | TRADES (8000), MARKET_PRICES (300000), SUPPLY_DEMAND (5000), POSITIONS (3000), MARKET_RESEARCH (250), BUYER_CONTRACTS (100) |
-| **CURATED** | 4 Dynamic Tables | POSITION_BOOK, FORWARD_CURVE, SUPPLY_DEMAND_BALANCE, CONTRACT_EXPOSURE |
-| **ML** | ML.FORECAST | Forecasting + anomaly detection |
-| **AI** | COMPLETE, SUMMARIZE, AI_EXTRACT | Classification + extraction |
-| **Search** | Cortex Search | 250 documents indexed |
-| **Agent** | NICKEL_TRADING_AGENT | Semantic View + Search tools |
+| Revenue (MTD) | `US$420M` | total across Buyer Contracts |
+| Avg Ni Price | `$16,840/t` | average per event |
+| Contracts Active | `87` | total across Buyer Contracts |
+| HPM Compliance | `100%` | average per event |
+| LME Forecast (30d) | `$17,200` | average per event |
+| China Premium | `+$340` | average per event |
+| EV Demand Index | `↑ 12%` | average per event |
 
 
----
+## Demo flow
 
-## The Story
+1. Trading Overview
+2. Market Intelligence
+3. Contract Risk
+4. Ask AI
+5. Architecture & Data
 
-An Indonesian nickel producer manages US$4.2 billion in annual sales across physical offtake and LME derivative positions. With 8,500 tonnes net long, volatile LME prices, and Indonesian export policy uncertainty, the Head of Trading needs real-time position visibility and AI-synthesized market intelligence — not end-of-day spreadsheets and PDF broker reports.
+## Talking points
 
----
+- **8,500t net long** - nickel position across LME and physical
+- **Rp 42B MTM** - mark-to-market gain on current positions
+- **US$4.2B** - annual trading revenue
+- **300,000 prices** - LME and physical market data points
+- **250 reports** - broker and policy research documents searchable
+- **100 contracts** - buyer offtake agreements with price formulas
 
-## Script
+## Business impact
 
-### [0:00–0:45] TRADING OVERVIEW
-
-**Show**: Trading Overview tab
-
-> "Net long 8,500 tonnes nickel — mark-to-market gain of Rp 42 billion at current LME prices."
-
-**Action**: Point at net position and MTM KPI
-
-### [0:45–1:30] MARKET INTELLIGENCE
-
-**Show**: Market Intelligence tab
-
-> "ML.FORECAST projects LME nickel rising to US$18,200/t in Q2 — demand from EV battery sector."
-
-**Action**: Show ML price forecast with confidence bands
-
-### [1:30–2:15] CONTRACT RISK
-
-**Show**: Contract Risk tab
-
-> "100 buyer contracts with pricing formulas linked to LME, premiums, and Indonesian HPM reference."
-
-**Action**: Show contract exposure by price scenario
-
-### [2:15–3:00] ASK AI
-
-**Show**: Ask AI tab
-
-> "Ricky asks: 'What's the LME nickel price forecast for next quarter?'"
-
-**Action**: Type price forecast question
-
-### [3:00–3:45] ARCHITECTURE & DATA
-
-**Show**: Architecture & Data tab
-
-> "Six Snowflake capabilities, six AWS services in the dual-build architecture."
-
-**Action**: Walk through architecture diagram
-
+- Indonesia's nickel exports were valued at US$33B in 2023 — largest globally (BPS Indonesia)
+- LME nickel price volatility averaged 32% in 2023 — requiring sophisticated risk management (LME)
+- Indonesian export policy changes have moved LME nickel by 10-15% in past episodes (Reuters)
+- AI-driven commodity trading reduces position management latency by 60-80% (McKinsey Commodities)
 
 ---
-
-## Key Demo Differentiators
-
-1. **ML.FORECAST on LME nickel prices** — Only demo using ML.FORECAST for base metal commodity price prediction
-2. **Real-time position book via Dynamic Tables** — Only demo maintaining live nickel trading positions with mark-to-market
-3. **250 market research documents searchable** — Cortex Search on broker reports and policy papers for instant market intelligence
-4. **Indonesian export policy scenario analysis** — Models impact of Indonesian nickel export policies on contract exposure
-5. **Indonesian nickel trading context** — US$33B industry with LME hedging, HPM reference pricing, and policy uncertainty
-
-
----
-
-## Demo Prep Checklist
-
-### Data Verification
-- [ ] `SELECT COUNT(*) FROM NICKEL_TRADING.RAW.TRADES` → 8000
-- [ ] `SELECT COUNT(*) FROM NICKEL_TRADING.RAW.MARKET_PRICES` → 300000
-- [ ] `SELECT COUNT(*) FROM NICKEL_TRADING.RAW.SUPPLY_DEMAND` → 5000
-
-### ML Model Verification
-- [ ] `SELECT COUNT(*) FROM NICKEL_TRADING.ML.LME_NICKEL_FORECAST_RESULTS` → >0
-
-### AI/Agent Verification
-- [ ] `SELECT COUNT(*) FROM NICKEL_TRADING.AI.DOC_EXTRACT_RESULTS` → 250
-- [ ] `SELECT COUNT(*) FROM NICKEL_TRADING.AI.MARKET_COMMENTARY` → >0
-
+Generated from `generator/demo_specs/aws-indonesia-mining-nickel-trading.json`. Do not hand-edit: run
+`python3 generator/gen_repo_docs.py aws-indonesia-mining-nickel-trading` instead.
