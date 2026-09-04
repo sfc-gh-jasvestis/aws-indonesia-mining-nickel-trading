@@ -53,6 +53,7 @@ export default function HomePage() {
         <div className="lg:col-span-1">
           <GeoMap
             country="indonesia"
+            labels={{ entity: 'Buyers', event: 'Price Ticks', alert: 'Limit Breaches' }}
             regions={data?.regions}
             markers={[{"label": "Morowali", "value": "IMIP: 42K t NPI/mo", "color": "green", "size": "lg"}, {"label": "Halmahera", "value": "Ore: 1.2M WMT", "color": "green", "size": "lg"}, {"label": "Obi Island", "value": "Port queue: 7 days", "color": "red", "size": "md"}, {"label": "Jakarta", "value": "Trading HQ", "color": "blue", "size": "md"}, {"label": "Makassar", "value": "Logistics hub", "color": "blue", "size": "sm"}]}
             routes={[{"from": "Halmahera", "to": "Morowali", "color": "#29B5E8"}, {"from": "Morowali", "to": "Makassar", "color": "#10B981"}]}
@@ -83,8 +84,13 @@ export default function HomePage() {
         columns={[
           { key: 'id', header: '#' },
           { key: 'name', header: 'Buyer' },
+          { key: 'region', header: 'Region' },
           { key: 'status', header: 'Delivery' },
-          { key: 'value', header: 'Value (US$M)' },
+          { key: 'm1', header: 'Value (US$M)' },
+          { key: 'm2', header: 'Lme Forecast 30D' },
+          { key: 'm3', header: 'China Premium' },
+          { key: 'events', header: 'Price Ticks' },
+          { key: 'alerts', header: 'Limit Breaches' },
         ]}
         data={data?.entities || []}
         title="Contract Performance"
